@@ -1,0 +1,33 @@
+logging:
+  level:
+    com.github.bilak: DEBUG
+    org.springframework.cloud.kubernetes: DEBUG
+    org.springframework.cloud.bootstrap.config: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+spring:
+  application:
+    name: poc-spring-cloud-kubernetes
+  cloud:
+    kubernetes:
+      reload:
+        enabled: true
+        strategy: refresh
+        mode: event
+        monitoring-secrets: true
+        monitoring-config-maps: true
+      secrets:
+        paths: /etc/secrets
+
+project:
+  storages:
+    long-term:
+      dummy:
+        name: dummystorage
+        key: dummystoragekey
+

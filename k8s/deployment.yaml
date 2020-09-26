@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: poc-spring-cloud-kubernetes
+  name: poc-spring-cloud-kubernetes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poc-spring-cloud-kubernetes
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: poc-spring-cloud-kubernetes
+    spec:
+      volumes:
+        - name: sa-secrets-volume
+          secret:
+            secretName: poc-spring-cloud-kubernetes
+        - name: sa-configs-volume
+          configMap:
+            name: poc-spring-cloud-kubernetes
+      containers:
+      - image: poc-spring-cloud-kubernetes
+        name: poc-spring-cloud-kubernetes
+        ports:
+          - containerPort: 8080
+          - containerPort: 5005
+        volumeMounts:
+          - mountPath: /etc/secrets/
+            name: sa-secrets-volume
+          - mountPath: /etc/configs/
+            name: sa-configs-volume
+        resources: {}
+        #envFrom:
+        #  - secretRef:
+        #      name: poc-spring-cloud-kubernetes
+status: {}

@@ -1,0 +1,18 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: poc-spring-cloud-kubernetes
+data:
+  application-kubernetes.yaml: |-
+    project:
+      storages:
+        long-term:
+          sa202008:
+            name: SA202008
+            key: SA202008KEY
+          sa202009:
+            name: ${SA202009_NAME}
+            key: ${SA202009_KEY}
+          sa202010:
+            name: ${sa202010_NAME}
+            key: ${SA202010_KEY}
