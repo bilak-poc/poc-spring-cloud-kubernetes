@@ -13,16 +13,6 @@ management:
 spring:
   application:
     name: poc-spring-cloud-kubernetes
-  cloud:
-    kubernetes:
-      reload:
-        enabled: true
-        strategy: refresh
-        mode: event
-        monitoring-secrets: true
-        monitoring-config-maps: true
-      secrets:
-        paths: /etc/secrets
 
 project:
   storages:

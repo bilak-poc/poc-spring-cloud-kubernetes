@@ -14,5 +14,5 @@ data:
             name: ${SA202009_NAME}
             key: ${SA202009_KEY}
           sa202010:
-            name: ${sa202010_NAME}
+            name: ${SA202010_NAME}
             key: ${SA202010_KEY}
